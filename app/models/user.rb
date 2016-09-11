@@ -12,4 +12,9 @@ class User < ApplicationRecord
   validates(:email, { presence: true , length: { maximum: 50 }, format:
   { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }})
   validates(:password, presence: true, length: { minimum: 6 })
+
+  # combine first_name and last_name attributes into a full name string
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

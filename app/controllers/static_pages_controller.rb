@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  # use fail to dump params hash
   def home
   end
 
