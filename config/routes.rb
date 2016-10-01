@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get "/home", to: 'static_pages#home'
   get "/about", to: 'static_pages#about'
   get "/help", to: 'static_pages#help', as: "helf"
@@ -6,6 +7,9 @@ Rails.application.routes.draw do
   get "/signup", to: "users#new", as: "new_user"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  # root 'application#hello'
   root 'static_pages#home'
+
+  # REST resources for GET POST PATCH DELETE
   resources :users
 end

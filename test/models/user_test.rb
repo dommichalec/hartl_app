@@ -18,9 +18,13 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "user first name and last name should be longer than 1 character" do
-    @user.first_name = "a"
-    @user.last_name = "b"
+  test "user first name at least 1 character long" do
+    @user.first_name = "T"
+    assert @user.valid?
+  end
+
+  test "user last name should be greater than or equal to 2 characters long" do
+    @user.last_name = "A"
     assert_not @user.valid?
   end
 

@@ -1,2 +1,29 @@
-<% provide(:title, "Sign up") %>
+<% provide(:title, 'Sign up') %>
 <h1>Sign up</h1>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <%= form_for(@user) do |form| %>
+      <%= form.label :first_name, placeholder: "Johnny", required: true,
+          autofocus: true %>
+      <%= form.text_field :first_name %>
+
+      <%= form.label :last_name, placeholder: "Appleseed", required: true %>
+      <%= form.text_field :last_name %>
+
+      <%= form.label :email, placeholder: "johnny@example.com",
+                      required: true %>
+      <%= form.email_field :email %>
+
+      <%= form.label :password, required: true %>
+      <%= form.password_field :password %>
+
+      <%= form.label :password_confirmation, "Confirm your password",
+                     required: true %>
+      <%= form.password_field :password_confirmation %>
+
+      <%= form.submit "Create account", method: :post,
+                      class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
