@@ -1,0 +1,23 @@
+<% provide(:title, 'Sign in') %>
+<h1>Sign in</h1>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+  </div>
+  <div class="col-md-4 col-md-offset-4">
+    <!-- sessions are not an active record objects, therefor use a symbol
+         and relevant post user, in this case, POST signin_path -->
+    <%= form_for(:session, url: signin_path) do |form| %>
+      <%= form.label :email, placeholder: "johnny@example.com",
+                      required: true %>
+      <%= form.email_field :email %>
+
+      <%= form.label :password, required: true %>
+      <%= form.password_field :password %>
+
+      <%= form.submit "Get in there, tiger", method: :post,
+                      class: "btn btn-primary" %>
+    <% end %>
+    <p>Brand new? <%= link_to("Sign up now", new_user_path) %></p>
+  </div>
+</div>
