@@ -10,8 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-# run rails db:migrate:reset to reset database
-
 ActiveRecord::Schema.define(version: 20160911131100) do
 
   create_table "users", force: :cascade do |t|
