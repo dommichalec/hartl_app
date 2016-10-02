@@ -1,4 +1,6 @@
 module SessionsHelper
+  # Using the session method, we can securely place a user id on the browser
+  # to create a temporary session.
   # Logs in a user with a temp cookie in the session hash
   def login(user)
     session[:user_id] = user.id
