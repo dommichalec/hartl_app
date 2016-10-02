@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   private
 
-  # used to enable mass assignment
+  # used to enable explicit assignment of attributes via mass assignment
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password,
                                  :password_confirmation)

@@ -2,8 +2,12 @@
 <h1>Sign up</h1>
 
 <div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= render 'shared/errors', object: @user %>
+  </div>
   <div class="col-md-4 col-md-offset-4">
-    <%= form_for(@user) do |form| %>
+
+    <%= form_for(@user, url: new_user_path) do |form| %>
       <%= form.label :first_name, placeholder: "Johnny", required: true,
           autofocus: true %>
       <%= form.text_field :first_name %>
@@ -18,8 +22,7 @@
       <%= form.label :password, required: true %>
       <%= form.password_field :password %>
 
-      <%= form.label :password_confirmation, "Confirm your password",
-                     required: true %>
+      <%= form.label :password_confirmation, "Confirm your password", required: true %>
       <%= form.password_field :password_confirmation %>
 
       <%= form.submit "Create account", method: :post,
