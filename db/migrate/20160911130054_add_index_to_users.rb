@@ -1,4 +1,6 @@
 # rails generate migration AddIndexToUsers email:index
+# add index when expecting to retrieve a record by the indexed attribute
+# in this case, the email
 
 
 class AddIndexToUsers < ActiveRecord::Migration[5.0]

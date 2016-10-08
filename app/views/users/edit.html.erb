@@ -1,14 +1,14 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<% provide(:title, 'Update account') %>
+<h1>Update account information</h1>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <%= render 'shared/errors', object: @user %>
   </div>
   <div class="col-md-4 col-md-offset-4">
-<!-- @user is a new record (User.new.new_record? returns true),
-  so Rails knows this is a POST request -->
-    <%= form_for(@user, url: new_user_path) do |form| %>
+  <!-- @user already exists in the db (@user.new_record? returns false),
+  so Rails knows this is a PATCH request -->
+    <%= form_for(@user, url: user_path) do |form| %>
       <%= form.label :first_name, placeholder: "Johnny", required: true,
           autofocus: true %>
       <%= form.text_field :first_name %>
@@ -26,9 +26,13 @@
       <%= form.label :password_confirmation, "Confirm your password", required: true %>
       <%= form.password_field :password_confirmation %>
 
-      <!-- call method: :post to be explicit -->
-      <%= form.submit "Create account", method: :post,
-                      class: "btn btn-primary" %>
+      <!-- call method: :patch to be explicit -->
+      <%= form.submit "Confirm updates",
+                      class: "btn btn-primary", method: :patch %>
     <% end %>
+    <br>
+    <%= gravatar_for(@user) %>
+    <p><a href="http://www.gravatar.com/emails", rel='noopener' target='_blank'>
+        update gravatar</a></p>
   </div>
 </div>

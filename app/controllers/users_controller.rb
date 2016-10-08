@@ -30,6 +30,22 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  # PATCH isn't natively sent via browser, so use POST
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Your profile changes have been successfully made!"
+      redirect_to user_path(@user)
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   # used to enable explicit assignment of attributes via mass assignment
